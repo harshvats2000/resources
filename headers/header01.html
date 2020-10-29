@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header 01</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      :root {
+        --p-color: #000;
+      }
+      body {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      .header {
+        font-family: sans-serif;
+        font-size: 20px;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 15px;
+        z-index: 1000;
+        box-shadow: 0 0 7px gray;
+      }
+
+      .header-nav {
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .nav-ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .menu-icon {
+        display: none;
+        width: 40px;
+      }
+      .menu-icon svg {
+        fill: var(--p-color);
+      }
+      .nav-li a::after {
+        content: '';
+        background: var(--p-color);
+        height: 2px;
+        position: absolute;
+        left: 50%;
+        width: 0;
+        bottom: -3px;
+        transition: 0.3s;
+      }
+      .nav-li a:hover::after {
+        left: 0;
+        width: 100%;
+      }
+
+      .logo-li a::after {
+        background: transparent;
+      }
+      .logo-li a {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-nav a {
+        color: var(--p-color);
+        position: relative;
+      }
+
+      .nav-m {
+        display: none;
+        margin-top: 8px;
+      }
+
+      @media only screen and (max-width: 800px) {
+        .header {
+          padding: 10px 0;
+        }
+        .nav-ul {
+          flex-direction: column;
+        }
+        .nav-li {
+          display: none;
+          width: 100%;
+          justify-content: center;
+          border-top: 1px solid gainsboro;
+          padding: 10px;
+        }
+        .logo-li {
+          padding: 0 15px;
+          border-top: none;
+          display: flex;
+          align-self: flex-start;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .platform-li {
+          margin-top: 10px;
+        }
+        .menu-icon {
+          display: flex;
+          cursor: pointer;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header-nav">
+        <ul class="nav-ul">
+          <li class="nav-li logo-li">
+            <a href="/home.html">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                width="48"
+                height="48"
+              />
+              <span class="logo-text">Company</span>
+            </a>
+            <div class="menu-icon" onclick="showMenu()">
+              <svg viewBox="0 -53 384 384" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
+                />
+                <path
+                  d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
+                />
+                <path
+                  d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
+                />
+              </svg>
+            </div>
+          </li>
+          <li class="nav-li platform-li"><a href="">Home</a></li>
+          <li class="nav-li"><a href="">About</a></li>
+          <li class="nav-li"><a href="">Contact</a></li>
+          <li class="nav-li"><a href="">Pricing</a></li>
+          <li class="nav-li"><a href="">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <script>
+      let els = document.querySelectorAll('.nav-li');
+      function showMenu() {
+        els.forEach((el, i) => {
+          if (i > 0) {
+            if (el.style.display === '' || el.style.display === 'none') {
+              el.style.display = 'flex';
+            } else {
+              el.style.display = 'none';
+            }
+          }
+        });
+      }
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth <= 800) {
+          els.forEach((el, i) => i > 0 && (el.style.display = 'none'));
+        } else {
+          els.forEach((el) => (el.style.display = 'flex'));
+        }
+      });
+    </script>
+  </body>
+</html>
