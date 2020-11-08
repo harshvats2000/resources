@@ -7,12 +7,11 @@
     <style>
       * {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
       :root {
         --p-color: #000;
-      }
-      body {
-        margin: 0;
       }
       a {
         text-decoration: none;
@@ -21,12 +20,9 @@
         font-family: sans-serif;
         font-size: 20px;
         background-color: white;
-        position: fixed;
-        top: 0;
         width: 100%;
-        padding: 20px 15px;
-        z-index: 1000;
-        box-shadow: 0 0 7px gray;
+        padding: 10px 15px;
+        box-shadow: 0 0 7px #aaa;
       }
 
       .header-nav {
@@ -39,12 +35,11 @@
         justify-content: space-between;
         align-items: center;
         list-style: none;
-        margin: 0;
-        padding: 0;
       }
       .menu-icon {
         display: none;
-        width: 40px;
+        width: 35px;
+        cursor: pointer;
       }
       .menu-icon svg {
         fill: var(--p-color);
@@ -82,9 +77,9 @@
         margin-top: 8px;
       }
 
-      @media only screen and (max-width: 800px) {
+      @media only screen and (max-width: 768px) {
         .header {
-          padding: 10px 0;
+          padding: 8px 0;
         }
         .nav-ul {
           flex-direction: column;
