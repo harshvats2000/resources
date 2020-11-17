@@ -9,9 +9,14 @@
         box-sizing: border-box;
       }
 
+      :root {
+        --p-color: #efefef;
+      }
+
       body {
         margin: 0px;
         font-family: sans-serif;
+        color: var(--p-color);
       }
 
       .nav {
@@ -22,14 +27,17 @@
       }
 
       .nav > .nav-header {
-        display: inline;
+        display: inline-block;
+        height: 100%;
       }
 
       .nav > .nav-header > .nav-title {
-        display: inline-block;
         font-size: 22px;
-        color: #fff;
-        padding: 10px 10px 10px 10px;
+        padding: 10px;
+        display: grid;
+        place-items: center;
+        height: 100%;
+        cursor: pointer;
       }
 
       .nav > .nav-btn {
@@ -37,16 +45,18 @@
       }
 
       .nav > .nav-links {
-        display: inline;
+        height: 100%;
+        display: flex;
         float: right;
         font-size: 18px;
       }
 
       .nav > .nav-links > a {
-        display: inline-block;
-        padding: 13px 10px 13px 10px;
+        display: grid;
+        place-items: center;
+        padding: 10px;
         text-decoration: none;
-        color: #efefef;
+        color: var(--p-color);
       }
 
       .nav > .nav-links > a:hover {
@@ -78,7 +88,7 @@
           display: block;
           width: 25px;
           height: 10px;
-          border-top: 2px solid #eee;
+          border-top: 2px solid var(--p-color);
         }
         .nav > .nav-links {
           position: absolute;
@@ -110,7 +120,7 @@
       <div class="nav">
         <input type="checkbox" id="nav-check" />
         <div class="nav-header">
-          <div class="nav-title">JoGeek</div>
+          <a class="nav-title">JoGeek</a>
         </div>
         <div class="nav-btn">
           <label for="nav-check">
