@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal01 | Harsh Vats</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .modal-wrapper {
+        display: none;
+        place-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgb(0, 0, 0, 0.5);
+        z-index: 9999;
+      }
+      .modal {
+        background: aliceblue;
+        padding: 20px;
+        animation: 0.3s fade-down;
+      }
+      @keyframes fade-down {
+        from {
+          transform: translateY(-200px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      header,
+      footer {
+        background: rebeccapurple;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 25px;
+      }
+      main {
+        padding: 20px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modal-wrapper">
+      <div class="modal">
+        <div class="close-btn">
+          <button onclick="closeModal()">X</button>
+        </div>
+        <h1>This is a modal</h1>
+      </div>
+    </div>
+    <header>This is the website header</header>
+
+    <main>
+      <p>This is a modal example by <a href="https://www.harshvats.dev">Harsh Vats</a>.</p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus exercitationem ab similique tenetur quibusdam
+      error consectetur eos quam, mollitia, aut culpa odio at optio minima consequatur repudiandae ex fuga voluptate, id
+      assumenda? Eveniet voluptatem et aspernatur ipsa, inventore porro veritatis est dolorum consequuntur
+      necessitatibus aliquid? Eligendi officiis unde libero enim!
+      <hr />
+
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus exercitationem ab similique tenetur quibusdam
+      error consectetur eos quam, mollitia, aut culpa odio at optio minima consequatur repudiandae ex fuga voluptate, id
+      assumenda? Eveniet voluptatem et aspernatur ipsa, inventore porro veritatis est dolorum consequuntur
+      necessitatibus aliquid? Eligendi officiis unde libero enim!
+      <hr />
+      <button onclick="openModal()" style="padding: 10px 20px; border: none; background: black; color: white">
+        Open modal
+      </button>
+      <hr />
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus exercitationem ab similique tenetur quibusdam
+      error consectetur eos quam, mollitia, aut culpa odio at optio minima consequatur repudiandae ex fuga voluptate, id
+      assumenda? Eveniet voluptatem et aspernatur ipsa, inventore porro veritatis est dolorum consequuntur
+      necessitatibus aliquid? Eligendi officiis unde libero enim!
+      <hr />
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus exercitationem ab similique tenetur quibusdam
+      error consectetur eos quam, mollitia, aut culpa odio at optio minima consequatur repudiandae ex fuga voluptate, id
+      assumenda? Eveniet voluptatem et aspernatur ipsa, inventore porro veritatis est dolorum consequuntur
+      necessitatibus aliquid? Eligendi officiis unde libero enim!
+      <hr />
+    </main>
+
+    <footer>This is the website footer</footer>
+
+    <script>
+      function openModal() {
+        document.querySelector('.modal-wrapper').style.display = 'grid';
+        ['header', 'main', 'footer'].map((item) => (document.querySelector(item).style.filter = 'blur(5px)'));
+        document.querySelector('body').style.overflow = 'hidden';
+      }
+      function closeModal() {
+        document.querySelector('.modal-wrapper').style.display = 'none';
+        ['header', 'main', 'footer'].map((item) => (document.querySelector(item).style.filter = 'blur(0)'));
+        document.querySelector('body').style.overflow = 'visible';
+      }
+    </script>
+  </body>
+</html>
