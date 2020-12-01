@@ -22,6 +22,7 @@
         width: 100vw;
         background: rgb(0, 0, 0, 0.5);
         z-index: 9999;
+        backdrop-filter: brightness(0.4) blur(5px);
       }
       .modal {
         background: aliceblue;
@@ -108,13 +109,9 @@
     <script>
       function openModal() {
         document.querySelector('.modal-wrapper').style.display = 'grid';
-        ['header', 'main', 'footer'].map((item) => (document.querySelector(item).style.filter = 'blur(5px)'));
-        document.querySelector('body').style.overflow = 'hidden';
       }
       function closeModal() {
         document.querySelector('.modal-wrapper').style.display = 'none';
-        ['header', 'main', 'footer'].map((item) => (document.querySelector(item).style.filter = 'blur(0)'));
-        document.querySelector('body').style.overflow = 'visible';
       }
     </script>
   </body>

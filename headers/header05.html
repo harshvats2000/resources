@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header 05 | Harsh Vats</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --p-color: rgb(242, 199, 68);
+        --delay: 0.1s;
+      }
+      header {
+        padding: 10px 15px;
+        height: 60px;
+        background: var(--p-color);
+        position: fixed;
+        width: 100%;
+        font-family: 'Open Sans', sans-serif;
+      }
+      .header-wrapper {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+      }
+      .header-menu-icon {
+        background: var(--p-color);
+        padding: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        height: 50px;
+        z-index: 10;
+      }
+      .header-menu-icon > span {
+        background: black;
+        height: 2px;
+        width: 20px;
+        display: block;
+        margin-top: 5px;
+      }
+      .menu {
+        width: 100vw;
+        min-height: 100vh;
+        position: fixed;
+        overflow-y: scroll;
+        top: 60px;
+        left: 0;
+        background: var(--p-color);
+      }
+      .menu a {
+        color: black;
+      }
+      .close-menu {
+        display: none;
+      }
+      .open-menu {
+        display: block;
+      }
+      .menu > nav > ul {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        align-items: center;
+        font-size: 24px;
+      }
+      .menu > nav > ul > li {
+        display: grid;
+        place-items: center;
+        height: calc((100vh - 60px) / 6);
+        opacity: 0;
+        animation: 0.5s fade-up forwards;
+      }
+      .menu > nav > ul > li:nth-of-type(1) {
+        animation-delay: calc(var(--delay) * 1);
+      }
+      .menu > nav > ul > li:nth-of-type(2) {
+        animation-delay: calc(var(--delay) * 2);
+      }
+      .menu > nav > ul > li:nth-of-type(3) {
+        animation-delay: calc(var(--delay) * 3);
+      }
+      .menu > nav > ul > li:nth-of-type(4) {
+        animation-delay: calc(var(--delay) * 4);
+      }
+      .menu > nav > ul > li:nth-of-type(5) {
+        animation-delay: calc(var(--delay) * 5);
+      }
+      .menu > nav > ul > li:nth-of-type(6) {
+        animation-delay: calc(var(--delay) * 6);
+      }
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+      @media only screen and (min-width: 1000px) {
+        .menu > nav > ul {
+          flex-direction: row;
+          justify-content: space-around;
+          font-size: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-wrapper">
+        <div class="header-logo">
+          <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="" />
+        </div>
+        <div class="header-menu-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+    <div class="menu close-menu">
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Services</a>
+          </li>
+          <li>
+            <a href="#">Work</a>
+          </li>
+          <li>
+            <a href="#">Approach</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main style="max-width: 500px; margin: auto; padding: 15px; padding-top: 70px">
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus id, reiciendis eligendi incidunt porro odit
+        impedit ipsa, harum consequatur rem quibusdam explicabo expedita possimus officia tenetur rerum, ad modi eveniet
+        enim unde aut! Accusamus, delectus repellendus culpa odit dolorem cumque quasi est modi tenetur eos. Animi
+        itaque sed est nobis.
+      </p>
+    </main>
+
+    <script>
+      const d = document;
+      function toggleMenu() {
+        const menu = d.querySelector('.menu');
+        for (var i = 0; i < menu.classList.length; i++) {
+          if (menu.classList[i] === 'close-menu') {
+            menu.classList.remove('close-menu');
+            menu.classList.add('open-menu');
+            break;
+          }
+          if (menu.classList[i] === 'open-menu') {
+            menu.classList.add('close-menu');
+            menu.classList.remove('open-menu');
+            break;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
