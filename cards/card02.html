@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card02</title>
+    <style>
+      body {
+        background: rgb(0, 0, 0, 0.4);
+        display: grid;
+        place-items: center;
+        margin: 0;
+        height: 100vh;
+      }
+      .card {
+        position: relative;
+        max-width: 400px;
+        overflow: hidden;
+        display: flex;
+        background: white;
+      }
+      .card-img {
+        transition: 0.7s;
+      }
+      .card:hover .card-img {
+        margin-left: -100%;
+      }
+      .text {
+        width: 100%;
+      }
+      .card a {
+        text-decoration: none;
+        color: black;
+        display: block;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img
+        src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        alt=""
+        width="100%"
+        style="vertical-align: bottom"
+        class="card-img"
+      />
+      <div class="text">
+        <a href="https://www.harshvats.dev">
+          <p>VISIT</p>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

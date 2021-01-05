@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card01</title>
+    <style>
+      .card {
+        position: relative;
+        max-width: 400px;
+      }
+      .card:hover .overlay {
+        opacity: 1;
+      }
+      .overlay {
+        transition: 0.5s;
+        background: rgb(0, 0, 0, 0.7);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .overlay a {
+        color: rgb(256, 256, 256, 0.9);
+        text-decoration: none;
+        display: inline-block;
+        background: orangered;
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img
+        src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        alt=""
+        width="100%"
+        style="vertical-align: bottom"
+      />
+      <div class="overlay">
+        <p>
+          <a target="_blank" href="https://www.harshvats.dev"> VISIT </a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
