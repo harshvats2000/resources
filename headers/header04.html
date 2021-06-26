@@ -4,243 +4,794 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Header 04 | Harsh Vats</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
-
     <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
       body {
         font-family: sans-serif;
       }
       :root {
-        --p-color: rebeccapurple;
+        --p-color: #1e376d;
+        --s-color: white;
       }
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      .navbar-logo {
-        padding: 15px;
-        color: #fff;
-      }
-      .navbar-logo:hover {
-        color: white;
-      }
-      .navbar-mainbg {
-        background-color: var(--p-color);
-        padding: 0px;
-      }
-      #navbarSupportedContent {
-        overflow: hidden;
-        position: relative;
-      }
-      #navbarSupportedContent ul {
-        padding: 0px;
-        margin: 0px;
-      }
-      #navbarSupportedContent ul li a i {
-        margin-right: 10px;
-      }
-      #navbarSupportedContent li {
-        list-style-type: none;
-        float: left;
-      }
-      #navbarSupportedContent ul li a {
-        color: rgba(255, 255, 255, 0.5);
+      a {
         text-decoration: none;
-        font-size: 15px;
-        display: block;
-        padding: 20px 20px;
-        transition-duration: 0.6s;
-        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        position: relative;
       }
-      #navbarSupportedContent > ul > li.active > a {
-        color: var(--p-color);
-        background-color: transparent;
-        transition: all 0.7s;
+      ul {
+        list-style-type: none;
       }
-      #navbarSupportedContent a:not(:only-child):after {
-        content: '\f105';
-        position: absolute;
-        right: 20px;
-        top: 10px;
-        font-size: 14px;
-        display: inline-block;
-        padding-right: 3px;
-        vertical-align: middle;
-        font-weight: 900;
-        transition: 0.5s;
+      .header-desktop {
+        background: var(--s-color);
+        height: 70px;
+        display: none;
       }
-      #navbarSupportedContent .active > a:not(:only-child):after {
-        transform: rotate(90deg);
-      }
-      .hori-selector {
-        display: inline-block;
-        position: absolute;
+      .nav-desktop {
+        display: grid;
+        grid-template-columns: 1fr 10fr 0.1fr 1fr 2fr;
+        align-items: center;
+        max-width: 1300px;
+        margin: auto;
         height: 100%;
-        top: 0px;
-        left: 0px;
-        transition-duration: 0.6s;
-        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        background-color: #fff;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        margin-top: 10px;
       }
-      .hori-selector .right,
-      .hori-selector .left {
+      .desktop-main-ul {
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 14px;
+      }
+      .desktop-main-ul > li {
+        display: block;
+        position: relative;
+        float: left;
+        background: var(--s-color);
+      }
+      .header-desktop ul li a {
+        display: block;
+        padding: 1em;
+        text-decoration: none;
+        white-space: nowrap;
+        color: var(--p-color);
+        font-weight: bold;
+      }
+      .header-desktop ul li a:hover {
+        color: #8dc7d8;
+      }
+      .header-desktop ul > li > ul {
+        display: none;
+        font-size: 12px;
+        box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+        background: var(--s-color);
+      }
+      ul li ul li a {
+        font-weight: normal;
+      }
+      .header-desktop li:hover > ul {
+        display: block;
         position: absolute;
-        width: 25px;
-        height: 25px;
-        background-color: #fff;
-        bottom: 10px;
       }
-      .hori-selector .right {
-        right: -25px;
-      }
-      .hori-selector .left {
-        left: -25px;
-      }
-      .hori-selector .right:before,
-      .hori-selector .left:before {
-        content: '';
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: var(--p-color);
-      }
-      .hori-selector .right:before {
-        bottom: 0;
-        right: -25px;
-      }
-      .hori-selector .left:before {
-        bottom: 0;
-        left: -25px;
+      .header-desktop li:hover li {
+        float: none;
       }
 
-      @media (max-width: 991px) {
-        #navbarSupportedContent ul li a {
-          padding: 12px 30px;
+      .header-desktop li:hover li a:hover {
+        background: #e9f1f5;
+        color: #8dc7d8;
+      }
+      .header-desktop ul ul ul {
+        left: 100%;
+        top: 0;
+      }
+      .vertical-separation-line {
+        height: 20px;
+        width: 3px;
+        background: var(--p-color);
+        margin: 0 10px;
+      }
+      .search-desktop {
+        text-align: center;
+      }
+      .search-desktop input {
+        display: none;
+      }
+      .search-desktop > .fa-close {
+        display: none;
+      }
+      .search-desktop-active {
+        width: 100vw;
+        padding: 0 10%;
+        background: white;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+      .search-desktop-active form {
+        width: 100%;
+        height: 100%;
+      }
+      .search-desktop-active input {
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 0 20px;
+        border: none;
+        font-size: 22px;
+      }
+      .search-desktop-active input:focus {
+        outline: none;
+      }
+      .search-desktop-active > .fa-search {
+        display: none;
+      }
+      .search-desktop-active > .fa-close {
+        display: block;
+      }
+      .btn {
+        background: var(--p-color);
+        color: var(--s-color);
+        padding: 10px 20px;
+        border-radius: 20px;
+      }
+
+      @media (min-width: 1350px) {
+        .header-mobile {
+          display: none;
         }
-        .hori-selector {
-          margin-top: 0px;
-          margin-left: 10px;
-          border-radius: 0;
-          border-top-left-radius: 25px;
-          border-bottom-left-radius: 25px;
-        }
-        .hori-selector .left,
-        .hori-selector .right {
-          right: 10px;
-        }
-        .hori-selector .left {
-          top: -25px;
-          left: auto;
-        }
-        .hori-selector .right {
-          bottom: -25px;
-        }
-        .hori-selector .left:before {
-          left: -25px;
-          top: -25px;
-        }
-        .hori-selector .right:before {
-          bottom: -25px;
-          left: -25px;
+        .header-desktop {
+          display: block;
         }
       }
+
+      /* header mobile */
+      .header-mobile {
+        background: #1e376d;
+        padding: 0 30px;
+      }
+      .nav-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .header-logo-mobile img {
+        filter: brightness(0) invert(1);
+      }
+      .menu-btn {
+        width: 20px;
+        height: 20px;
+        display: grid;
+        background: transparent;
+        border: none;
+        place-items: center;
+      }
+      .menu-btn span {
+        display: block;
+        height: 2px;
+        background: #8e99a6;
+        width: 100%;
+      }
+      .nav-mobile > div {
+        display: none;
+      }
+      .header-logo-mobile {
+        display: block !important;
+      }
+      .mobile-main-ul-wrapper {
+        background: #394048;
+        position: absolute;
+        left: 5%;
+        top: 55px;
+        width: 90%;
+      }
+      .mobile-main-ul {
+        width: 100%;
+        max-height: 400px;
+        overflow: scroll;
+      }
+      .mobile-main-ul li {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .mobile-main-ul > li {
+        border-bottom: 1px solid #404851;
+      }
+      .header-mobile ul li a {
+        display: block;
+        padding: 1em;
+        text-decoration: none;
+        white-space: nowrap;
+        color: #ebedf2;
+        text-transform: uppercase;
+        font-size: 12px;
+        flex: 6;
+      }
+      .header-mobile ul li ul {
+        display: none;
+        flex: 0 0 100%;
+      }
+      .header-mobile ul li ul li:hover {
+        background: #292e33;
+      }
+      .header-mobile ul li ul li:hover ul {
+        padding-left: 10px;
+      }
+      .header-mobile ul li ul a {
+        color: #7d8691;
+      }
+      .expand {
+        flex: 1;
+        color: white;
+        position: relative;
+        margin-top: 7px;
+        font-size: 12px;
+      }
+      .expand::after {
+        content: attr(data-content);
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="#">Logo</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fas fa-bars text-white"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <div class="hori-selector">
-              <div class="left"></div>
-              <div class="right"></div>
-            </div>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="fas fa-home"></i>Home</a>
+    <header class="header-desktop">
+      <nav class="nav-desktop">
+        <div>
+          <img src="https://dragonwavex.com/sites/default/files/dragonwave_logo_6.png" alt="dragonwave logo" />
+        </div>
+
+        <div>
+          <ul class="desktop-main-ul">
+            <li>
+              <a href="#">Products</a>
+              <ul>
+                <li>
+                  <a href="#">Packet microwave</a>
+                  <ul>
+                    <li>
+                      <a href="#">harmony enhanced 1</a>
+                    </li>
+                    <li>
+                      <a href="#">harmony enhanced 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Network management</a>
+                  <ul>
+                    <li>
+                      <a href="#">netviewer</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="javascript:void(0);"><i class="fas fa-info-circle"></i>About Us</a>
+
+            <li>
+              <a href="#">solutions</a>
+              <ul>
+                <li>
+                  <a href="#">mobile backhaul</a>
+                </li>
+                <li>
+                  <a href="#">public safety</a>
+                </li>
+                <li>
+                  <a href="#">state & local government</a>
+                </li>
+                <li>
+                  <a href="#">last mile fiber extension</a>
+                </li>
+                <li>
+                  <a href="#">rural cellular backhaul</a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="fas fa-blog"></i>Blogs</a>
+
+            <li>
+              <a href="#">Services & Support</a>
+              <ul>
+                <li>
+                  <a href="#">pre deployment</a>
+                  <ul>
+                    <li>
+                      <a href="#">network planning and design</a>
+                    </li>
+                    <li>
+                      <a href="#">line of sight</a>
+                    </li>
+                    <li>
+                      <a href="#">site survey</a>
+                    </li>
+                    <li>
+                      <a href="#">logistics</a>
+                    </li>
+                    <li>
+                      <a href="#">frequency & license coordination</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">deployment</a>
+                  <ul>
+                    <li>
+                      <a href="#">microwave link installation, alignment & testing</a>
+                    </li>
+                    <li>
+                      <a href="#">dragonwave certified training</a>
+                      <ul>
+                        <li>
+                          <a href="#">HARMONY ENHANCED MULTI-CARRIER TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">HARMONY ENHANCED TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">DRAGONWAVE HORIZON TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">NETVIEWER TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">HARMONY RADIO TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">HARMONY HUB 800 TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">HARMONY FM200 TRAINING</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">project management</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">post deployment</a>
+                  <ul>
+                    <li>
+                      <a href="#">technical support</a>
+                    </li>
+
+                    <li>
+                      <a href="#">dragon care</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">customer support services</a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="fas fa-address-book"></i>Contact</a>
+
+            <li>
+              <a href="#">Resources</a>
+              <ul>
+                <li>
+                  <a href="#">product brochure</a>
+                </li>
+                <li>
+                  <a href="#">white papers</a>
+                </li>
+                <li>
+                  <a href="#">case studies</a>
+                </li>
+                <li>
+                  <a href="#">articles & interviews</a>
+                </li>
+                <li>
+                  <a href="#">Blog</a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="fas fa-question-circle"></i>FAQ's</a>
+
+            <li>
+              <a href="#">partners</a>
+              <ul>
+                <li>
+                  <a href="#">partner portal</a>
+                </li>
+                <li>
+                  <a href="#">E-commerce store</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">Company</a>
+              <ul>
+                <li>
+                  <a href="#">about dragonwave</a>
+                  <ul>
+                    <li>
+                      <a href="#">ACCESSIBILITY POLICY</a>
+                    </li>
+
+                    <li>
+                      <a href="#">CONFLICT MINERALS POLICY</a>
+                    </li>
+
+                    <li>
+                      <a href="#">PRIVACY POLICY</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">tradeshows & events</a>
+                </li>
+
+                <li>
+                  <a href="#">press releases</a>
+                </li>
+
+                <li>
+                  <a href="#">careers</a>
+                  <ul>
+                    <li>
+                      <a href="#">Life at DragonWave</a>
+                    </li>
+
+                    <li>
+                      <a href="#">CULTURE AND VALUES</a>
+                    </li>
+
+                    <li>
+                      <a href="#">Co-Ops and Students At DragonWave</a>
+                    </li>
+
+                    <li>
+                      <a href="#">Current Career Openings</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">contact us</a>
+                </li>
+              </ul>
             </li>
           </ul>
+        </div>
+
+        <div class="vertical-separation-line"></div>
+
+        <div class="search-desktop">
+          <form action="">
+            <input type="text" placeholder="Type to search..." />
+          </form>
+          <i class="fa fa-search"></i>
+          <i class="fa fa-close"></i>
+        </div>
+
+        <div>
+          <a href="#" class="btn">
+            <i class="fa fa-user"></i>
+            SIGN IN</a
+          >
         </div>
       </nav>
     </header>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <header class="header-mobile">
+      <nav class="nav-mobile">
+        <div class="header-logo-mobile">
+          <img src="https://dragonwavex.com/sites/default/files/dragonwave_logo_6.png" alt="dragonwave logo" />
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="mobile-main-ul-wrapper">
+          <ul class="mobile-main-ul">
+            <li>
+              <a href="#">Products</a>
+              <span class="expand" data-content="<"></span>
+              <ul>
+                <li>
+                  <a href="#">Packet microwave</a>
+                  <span class="expand" data-content="<"></span>
+                  <ul>
+                    <li>
+                      <a href="#">harmony enhanced 1</a>
+                    </li>
+                    <li>
+                      <a href="#">harmony enhanced 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Network management</a>
+                  <span class="expand" data-content="<"></span>
+                  <ul>
+                    <li>
+                      <a href="#">netviewer</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">solutions</a>
+              <span class="expand" data-content="<"></span>
+              <ul>
+                <li>
+                  <a href="#">mobile backhaul</a>
+                </li>
+                <li>
+                  <a href="#">public safety</a>
+                </li>
+                <li>
+                  <a href="#">state & local government</a>
+                </li>
+                <li>
+                  <a href="#">last mile fiber extension</a>
+                </li>
+                <li>
+                  <a href="#">rural cellular backhaul</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">Services & Support</a>
+              <span class="expand" data-content="<"></span>
+              <ul>
+                <li>
+                  <a href="#">pre deployment</a>
+                  <span class="expand" data-content="<"></span>
+                  <ul>
+                    <li>
+                      <a href="#">network planning and design</a>
+                    </li>
+                    <li>
+                      <a href="#">line of sight</a>
+                    </li>
+                    <li>
+                      <a href="#">site survey</a>
+                    </li>
+                    <li>
+                      <a href="#">logistics</a>
+                    </li>
+                    <li>
+                      <a href="#">frequency & license coordination</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">deployment</a>
+                  <span class="expand" data-content="<"></span>
+                  <ul>
+                    <li>
+                      <a href="#">microwave link installation, alignment & testing</a>
+                    </li>
+                    <li>
+                      <a href="#">dragonwave certified training</a>
+                      <span class="expand" data-content="<"></span>
+                      <ul>
+                        <li>
+                          <a href="#">HARMONY ENHANCED MULTI-CARRIER TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">HARMONY ENHANCED TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">DRAGONWAVE HORIZON TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">NETVIEWER TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">HARMONY RADIO TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">HARMONY HUB 800 TRAINING</a>
+                        </li>
+                        <li>
+                          <a href="#">HARMONY FM200 TRAINING</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">project management</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">post deployment</a>
+                  <span class="expand" data-content="<"></span>
+                  <ul>
+                    <li>
+                      <a href="#">technical support</a>
+                    </li>
+
+                    <li>
+                      <a href="#">dragon care</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">customer support services</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">Resources</a>
+              <span class="expand" data-content="<"></span>
+              <ul>
+                <li>
+                  <a href="#">product brochure</a>
+                </li>
+                <li>
+                  <a href="#">white papers</a>
+                </li>
+                <li>
+                  <a href="#">case studies</a>
+                </li>
+                <li>
+                  <a href="#">articles & interviews</a>
+                </li>
+                <li>
+                  <a href="#">Blog</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">partners</a>
+              <span class="expand" data-content="<"></span>
+              <ul>
+                <li>
+                  <a href="#">partner portal</a>
+                </li>
+                <li>
+                  <a href="#">E-commerce store</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">Company</a>
+              <span class="expand" data-content="<"></span>
+              <ul>
+                <li>
+                  <a href="#">about dragonwave</a>
+                  <span class="expand" data-content="<"></span>
+                  <ul>
+                    <li>
+                      <a href="#">ACCESSIBILITY POLICY</a>
+                    </li>
+
+                    <li>
+                      <a href="#">CONFLICT MINERALS POLICY</a>
+                    </li>
+
+                    <li>
+                      <a href="#">PRIVACY POLICY</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">tradeshows & events</a>
+                </li>
+
+                <li>
+                  <a href="#">press releases</a>
+                </li>
+
+                <li>
+                  <a href="#">careers</a>
+                  <span class="expand" data-content="<"></span>
+                  <ul>
+                    <li>
+                      <a href="#">Life at DragonWave</a>
+                    </li>
+
+                    <li>
+                      <a href="#">CULTURE AND VALUES</a>
+                    </li>
+
+                    <li>
+                      <a href="#">Co-Ops and Students At DragonWave</a>
+                    </li>
+
+                    <li>
+                      <a href="#">Current Career Openings</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#">contact us</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="search-mobile">
+          <form action="">
+            <input type="text" placeholder="Type to search..." />
+          </form>
+          <i class="fa fa-search"></i>
+          <i class="fa fa-close"></i>
+        </div>
+
+        <div class="mobile-signin-btn">
+          <a href="#" class="btn">
+            <i class="fa fa-user"></i>
+            SIGN IN</a
+          >
+        </div>
+      </nav>
+    </header>
+
     <script>
-      function test() {
-        var tabsNewAnim = $('#navbarSupportedContent');
-        var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
-        var activeItemNewAnim = tabsNewAnim.find('.active');
-        var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-        var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-        var itemPosNewAnimTop = activeItemNewAnim.position();
-        var itemPosNewAnimLeft = activeItemNewAnim.position();
-        $('.hori-selector').css({
-          top: itemPosNewAnimTop.top + 'px',
-          left: itemPosNewAnimLeft.left + 'px',
-          height: activeWidthNewAnimHeight + 'px',
-          width: activeWidthNewAnimWidth + 'px',
-        });
-        $('#navbarSupportedContent').on('click', 'li', function (e) {
-          $('#navbarSupportedContent ul li').removeClass('active');
-          $(this).addClass('active');
-          var activeWidthNewAnimHeight = $(this).innerHeight();
-          var activeWidthNewAnimWidth = $(this).innerWidth();
-          var itemPosNewAnimTop = $(this).position();
-          var itemPosNewAnimLeft = $(this).position();
-          $('.hori-selector').css({
-            top: itemPosNewAnimTop.top + 'px',
-            left: itemPosNewAnimLeft.left + 'px',
-            height: activeWidthNewAnimHeight + 'px',
-            width: activeWidthNewAnimWidth + 'px',
-          });
-        });
+      const d = document;
+      let searchBar = d.querySelector(".search-desktop");
+      let searchIcon = d.querySelector(".fa-search");
+      let closeIcon = d.querySelector(".fa-close");
+
+      function showSearchBar(e) {
+        searchBar.classList.add("search-desktop-active");
+        d.querySelector(".search-desktop input").focus();
       }
-      $(document).ready(function () {
-        setTimeout(function () {
-          test();
+      function hideSearchBar(e) {
+        searchBar.classList.remove("search-desktop-active");
+      }
+      searchIcon.addEventListener("click", showSearchBar);
+      closeIcon.addEventListener("click", hideSearchBar);
+
+      function toggleMenu() {
+        const el = document.querySelector(".mobile-main-ul-wrapper");
+        if (el.style.display === "flex") {
+          el.style.display = "none";
+        } else {
+          el.style.display = "flex";
+        }
+      }
+
+      document.querySelectorAll(".expand").forEach((el) => {
+        el.addEventListener("click", function () {
+          toggleExpand(el);
         });
       });
-      $(window).on('resize', function () {
-        setTimeout(function () {
-          test();
-        }, 500);
-      });
-      $('.navbar-toggler').click(function () {
-        setTimeout(function () {
-          test();
-        });
-      });
+
+      function toggleExpand(el) {
+        if (el.nextElementSibling.style.display === "") {
+          el.setAttribute("data-content", ">");
+          el.nextElementSibling.style.display = "block";
+          el.previousElementSibling.style.color = "#8dc7d8";
+        } else {
+          el.setAttribute("data-content", "<");
+          el.nextElementSibling.style.display = "";
+        }
+      }
     </script>
   </body>
 </html>

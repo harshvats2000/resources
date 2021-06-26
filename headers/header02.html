@@ -3,149 +3,141 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Header 02 | Harsh Vats</title>
-
+    <title>Header 03 | Harsh Vats</title>
     <style>
       * {
         box-sizing: border-box;
-        padding: 0;
-        margin: 0;
+      }
+
+      :root {
+        --p-color: #efefef;
       }
 
       body {
+        margin: 0px;
         font-family: sans-serif;
+        color: var(--p-color);
       }
 
-      .navbar {
-        font-size: 18px;
-        background: white;
-        box-shadow: 0 0 7px #aaa;
-        padding-bottom: 12px;
+      .nav {
+        height: 50px;
+        width: 100%;
+        background-color: #4d4d4d;
+        position: relative;
       }
 
-      .main-nav {
-        list-style-type: none;
-        display: none;
-      }
-
-      .nav-links,
-      .logo {
-        text-decoration: none;
-        color: black;
-      }
-
-      .main-nav li {
-        text-align: center;
-        margin: 15px auto;
-      }
-
-      .logo {
+      .nav > .nav-header {
         display: inline-block;
-        font-size: 22px;
-        margin-top: 10px;
-        margin-left: 20px;
+        height: 100%;
       }
 
-      .navbar-toggle {
-        position: absolute;
-        top: 10px;
-        right: 20px;
+      .nav > .nav-header > .nav-title {
+        font-size: 22px;
+        padding: 10px;
+        display: grid;
+        place-items: center;
+        height: 100%;
         cursor: pointer;
       }
 
-      #chkToggle {
+      .nav > .nav-btn {
         display: none;
       }
 
-      #chkToggle:checked + ul.main-nav {
-        display: block;
+      .nav > .nav-links {
+        height: 100%;
+        display: flex;
+        float: right;
+        font-size: 18px;
       }
 
-      @media screen and (min-width: 768px) {
-        .navbar {
-          display: flex;
-          justify-content: space-between;
-          padding-bottom: 0;
-          height: 70px;
-          align-items: center;
-        }
+      .nav > .nav-links > a {
+        display: grid;
+        place-items: center;
+        padding: 10px;
+        text-decoration: none;
+        color: var(--p-color);
+      }
 
-        #chkToggle:checked + ul.main-nav {
-          display: flex;
-        }
+      .nav > .nav-links > a:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
 
-        .main-nav {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-end;
-          height: 100%;
-          align-items: center;
-          margin-right: 30px;
-        }
+      .nav > #nav-check {
+        display: none;
+      }
 
-        .main-nav li {
-          height: 100%;
+      @media (max-width: 600px) {
+        .nav > .nav-btn {
+          display: inline-block;
+          position: absolute;
+          right: 0px;
+          top: 0px;
         }
-
-        .nav-links {
-          height: 100%;
-          display: grid;
-          place-items: center;
-          padding: 0 20px;
+        .nav > .nav-btn > label {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          padding: 13px;
         }
-
-        .logo {
-          margin-top: 0;
+        .nav > .nav-btn > label:hover,
+        .nav #nav-check:checked ~ .nav-btn > label {
+          background-color: rgba(0, 0, 0, 0.3);
         }
-
-        .navbar-toggle {
-          display: none;
+        .nav > .nav-btn > label > span {
+          display: block;
+          width: 25px;
+          height: 10px;
+          border-top: 2px solid var(--p-color);
         }
-
-        .nav-links:hover {
-          transition: 0.3s;
-          color: white;
-          background: rgb(0, 0, 0, 0.5);
+        .nav > .nav-links {
+          position: absolute;
+          display: block;
+          width: 100%;
+          background-color: #333;
+          height: 0px;
+          transition: all 0.3s ease-in;
+          overflow-y: hidden;
+          top: 50px;
+          left: 0px;
+        }
+        .nav > .nav-links > a {
+          display: block;
+          width: 100%;
+        }
+        .nav > #nav-check:not(:checked) ~ .nav-links {
+          height: 0px;
+        }
+        .nav > #nav-check:checked ~ .nav-links {
+          height: calc(100vh - 50px);
+          overflow-y: auto;
         }
       }
     </style>
   </head>
   <body>
     <header>
-      <nav class="navbar">
-        <label class="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
-          <svg fill="black" width="30px" viewBox="0 -53 384 384" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
-            />
-            <path
-              d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
-            />
-            <path
-              d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
-            />
-          </svg>
-        </label>
-        <a href="#" class="logo">logo</a>
-        <input type="checkbox" id="chkToggle" />
-        <ul class="main-nav" id="js-menu">
-          <li>
-            <a href="#" class="nav-links">Home</a>
-          </li>
-          <li>
-            <a href="#" class="nav-links">Products</a>
-          </li>
-          <li>
-            <a href="#" class="nav-links">About Us</a>
-          </li>
-          <li>
-            <a href="#" class="nav-links">Contact Us</a>
-          </li>
-          <li>
-            <a href="#" class="nav-links">Blog</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="nav">
+        <input type="checkbox" id="nav-check" />
+        <div class="nav-header">
+          <a class="nav-title">JoGeek</a>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <nav class="nav-links">
+          <a href="">Home</a>
+          <a href="">About Us</a>
+          <a href="">Products</a>
+          <a href="">Contact</a>
+          <a href="">FAQ's</a>
+        </nav>
+      </div>
     </header>
   </body>
 </html>
