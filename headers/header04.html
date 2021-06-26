@@ -153,7 +153,7 @@
       /* header mobile */
       .header-mobile {
         background: #1e376d;
-        padding: 0 30px;
+        padding: 10px 30px;
       }
       .nav-mobile {
         display: flex;
@@ -171,6 +171,7 @@
         background: transparent;
         border: none;
         place-items: center;
+        order: 3;
       }
       .menu-btn span {
         display: block;
@@ -183,6 +184,9 @@
       }
       .header-logo-mobile {
         display: block !important;
+      }
+      .header-logo-mobile img {
+        width: 250px;
       }
       .mobile-main-ul-wrapper {
         background: #394048;
@@ -239,6 +243,61 @@
         position: absolute;
         left: 0;
         top: 0;
+      }
+      .search-mobile {
+        display: block !important;
+        color: white;
+        order: 2;
+      }
+      .search-mobile form {
+        display: none;
+        flex: 5;
+      }
+      .search-mobile .fa-close {
+        display: none;
+        flex: 1;
+        font-size: 25px;
+      }
+      .search-mobile-active {
+        width: 100vw;
+        padding: 0 10%;
+        background: #1e376d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 60px;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+      .search-mobile-active form {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .search-mobile-active input {
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 0 15px;
+        border: none;
+        font-size: 20px;
+        background: transparent;
+        color: white;
+      }
+      .search-mobile-active input::placeholder {
+        color: white;
+      }
+      .search-mobile-active input:focus {
+        outline: none;
+      }
+      .search-mobile-active > .fa-search {
+        display: none;
+      }
+      .search-mobile-active > .fa-close {
+        display: block;
       }
     </style>
 
@@ -753,22 +812,22 @@
 
     <script>
       const d = document;
-      let searchBar = d.querySelector(".search-desktop");
-      let searchIcon = d.querySelector(".fa-search");
-      let closeIcon = d.querySelector(".fa-close");
+      let searchBarDesktop = d.querySelector(".search-desktop");
+      let searchIconDesktop = d.querySelector(".search-desktop .fa-search");
+      let closeIconDesktop = d.querySelector(".search-desktop .fa-close");
 
-      function showSearchBar(e) {
-        searchBar.classList.add("search-desktop-active");
+      function showSearchBar(el) {
+        el.classList.add("search-desktop-active");
         d.querySelector(".search-desktop input").focus();
       }
-      function hideSearchBar(e) {
-        searchBar.classList.remove("search-desktop-active");
+      function hideSearchBar(el) {
+        el.classList.remove("search-desktop-active");
       }
-      searchIcon.addEventListener("click", showSearchBar);
-      closeIcon.addEventListener("click", hideSearchBar);
+      searchIconDesktop.addEventListener("click", () => showSearchBar(searchBarDesktop));
+      closeIconDesktop.addEventListener("click", () => hideSearchBar(searchBarDesktop));
 
       function toggleMenu() {
-        const el = document.querySelector(".mobile-main-ul-wrapper");
+        const el = d.querySelector(".mobile-main-ul-wrapper");
         if (el.style.display === "flex") {
           el.style.display = "none";
         } else {
@@ -776,7 +835,7 @@
         }
       }
 
-      document.querySelectorAll(".expand").forEach((el) => {
+      d.querySelectorAll(".expand").forEach((el) => {
         el.addEventListener("click", function () {
           toggleExpand(el);
         });
@@ -792,6 +851,20 @@
           el.nextElementSibling.style.display = "";
         }
       }
+
+      let searchBarMobile = d.querySelector(".search-mobile");
+      let searchIconMobile = d.querySelector(".search-mobile .fa-search");
+      let closeIconMobile = d.querySelector(".search-mobile .fa-close");
+
+      function showSearchBar(el) {
+        el.classList.add("search-mobile-active");
+        d.querySelector(".search-mobile input").focus();
+      }
+      function hideSearchBar(el) {
+        el.classList.remove("search-mobile-active");
+      }
+      searchIconMobile.addEventListener("click", () => showSearchBar(searchBarMobile));
+      closeIconMobile.addEventListener("click", () => hideSearchBar(searchBarMobile));
     </script>
   </body>
 </html>
