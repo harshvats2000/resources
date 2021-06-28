@@ -82,7 +82,7 @@
       }
       .header-desktop ul ul ul {
         left: 100%;
-        top: 0;
+        margin-top: -40px;
       }
       .vertical-separation-line {
         height: 20px;
@@ -95,6 +95,10 @@
       }
       .search-desktop input {
         display: none;
+      }
+      .fa-close,
+      .fa-search {
+        cursor: pointer;
       }
       .search-desktop > .fa-close {
         display: none;
@@ -166,7 +170,7 @@
       }
       .menu-btn {
         width: 20px;
-        height: 20px;
+        height: 18px;
         display: grid;
         background: transparent;
         border: none;
@@ -298,6 +302,27 @@
       }
       .search-mobile-active > .fa-close {
         display: block;
+      }
+      .mobile-signin-btn {
+        width: 90%;
+        margin: 10px auto;
+      }
+      .mobile-signin-btn a {
+        border: 1px solid white;
+        text-align: center;
+        padding: 0.6em !important;
+      }
+      .quick-links::before {
+        content: "";
+        background-image: url(https://dragonwavex.com/sites/all/themes/jango/jango_sub/img/backlinks.png);
+        display: inline-block;
+        vertical-align: middle;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+        filter: brightness(0) invert(1);
       }
     </style>
 
@@ -790,6 +815,38 @@
                 </li>
               </ul>
             </li>
+
+            <li>
+              <a class="quick-links" href="#">Quick Links</a>
+              <span class="expand" data-content="<"></span>
+              <ul>
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li>
+                  <a href="#">Customer support services</a>
+                </li>
+                <li>
+                  <a href="#">Partner portal</a>
+                </li>
+                <li>
+                  <a href="#">E-commerce portal</a>
+                </li>
+                <li>
+                  <a href="#">Blog</a>
+                </li>
+                <li>
+                  <a href="#">Contact us</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="mobile-signin-btn">
+              <a href="#" class="btn">
+                <i class="fa fa-user"></i>
+                SIGN IN</a
+              >
+            </li>
           </ul>
         </div>
 
@@ -800,13 +857,6 @@
           <i class="fa fa-search"></i>
           <i class="fa fa-close"></i>
         </div>
-
-        <div class="mobile-signin-btn">
-          <a href="#" class="btn">
-            <i class="fa fa-user"></i>
-            SIGN IN</a
-          >
-        </div>
       </nav>
     </header>
 
@@ -816,15 +866,15 @@
       let searchIconDesktop = d.querySelector(".search-desktop .fa-search");
       let closeIconDesktop = d.querySelector(".search-desktop .fa-close");
 
-      function showSearchBar(el) {
-        el.classList.add("search-desktop-active");
+      function showDesktopSearchBar() {
+        searchBarDesktop.classList.add("search-desktop-active");
         d.querySelector(".search-desktop input").focus();
       }
-      function hideSearchBar(el) {
-        el.classList.remove("search-desktop-active");
+      function hideDesktopSearchBar() {
+        searchBarDesktop.classList.remove("search-desktop-active");
       }
-      searchIconDesktop.addEventListener("click", () => showSearchBar(searchBarDesktop));
-      closeIconDesktop.addEventListener("click", () => hideSearchBar(searchBarDesktop));
+      searchIconDesktop.addEventListener("click", showDesktopSearchBar);
+      closeIconDesktop.addEventListener("click", hideDesktopSearchBar);
 
       function toggleMenu() {
         const el = d.querySelector(".mobile-main-ul-wrapper");
@@ -849,6 +899,7 @@
         } else {
           el.setAttribute("data-content", "<");
           el.nextElementSibling.style.display = "";
+          el.previousElementSibling.style.color = "white";
         }
       }
 
@@ -856,15 +907,15 @@
       let searchIconMobile = d.querySelector(".search-mobile .fa-search");
       let closeIconMobile = d.querySelector(".search-mobile .fa-close");
 
-      function showSearchBar(el) {
-        el.classList.add("search-mobile-active");
+      function showMobileSearchBar() {
+        searchBarMobile.classList.add("search-mobile-active");
         d.querySelector(".search-mobile input").focus();
       }
-      function hideSearchBar(el) {
-        el.classList.remove("search-mobile-active");
+      function hideMobileSearchBar() {
+        searchBarMobile.classList.remove("search-mobile-active");
       }
-      searchIconMobile.addEventListener("click", () => showSearchBar(searchBarMobile));
-      closeIconMobile.addEventListener("click", () => hideSearchBar(searchBarMobile));
+      searchIconMobile.addEventListener("click", showMobileSearchBar);
+      closeIconMobile.addEventListener("click", hideMobileSearchBar);
     </script>
   </body>
 </html>
