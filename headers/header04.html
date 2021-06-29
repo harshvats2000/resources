@@ -238,15 +238,9 @@
       .expand {
         flex: 1;
         color: white;
-        position: relative;
         margin-top: 7px;
         font-size: 12px;
-      }
-      .expand::after {
-        content: attr(data-content);
-        position: absolute;
-        left: 0;
-        top: 0;
+        background: url("../left.svg") no-repeat;
       }
       .search-mobile {
         display: block !important;
@@ -589,11 +583,11 @@
           <ul class="mobile-main-ul">
             <li>
               <a href="#">Products</a>
-              <span class="expand" data-content="<"></span>
+              <span class="expand"></span>
               <ul>
                 <li>
                   <a href="#">Packet microwave</a>
-                  <span class="expand" data-content="<"></span>
+                  <span class="expand"></span>
                   <ul>
                     <li>
                       <a href="#">harmony enhanced 1</a>
@@ -605,7 +599,7 @@
                 </li>
                 <li>
                   <a href="#">Network management</a>
-                  <span class="expand" data-content="<"></span>
+                  <span class="expand"></span>
                   <ul>
                     <li>
                       <a href="#">netviewer</a>
@@ -617,7 +611,7 @@
 
             <li>
               <a href="#">solutions</a>
-              <span class="expand" data-content="<"></span>
+              <span class="expand"></span>
               <ul>
                 <li>
                   <a href="#">mobile backhaul</a>
@@ -639,11 +633,11 @@
 
             <li>
               <a href="#">Services & Support</a>
-              <span class="expand" data-content="<"></span>
+              <span class="expand"></span>
               <ul>
                 <li>
                   <a href="#">pre deployment</a>
-                  <span class="expand" data-content="<"></span>
+                  <span class="expand"></span>
                   <ul>
                     <li>
                       <a href="#">network planning and design</a>
@@ -665,14 +659,14 @@
 
                 <li>
                   <a href="#">deployment</a>
-                  <span class="expand" data-content="<"></span>
+                  <span class="expand"></span>
                   <ul>
                     <li>
                       <a href="#">microwave link installation, alignment & testing</a>
                     </li>
                     <li>
                       <a href="#">dragonwave certified training</a>
-                      <span class="expand" data-content="<"></span>
+                      <span class="expand"></span>
                       <ul>
                         <li>
                           <a href="#">HARMONY ENHANCED MULTI-CARRIER TRAINING</a>
@@ -705,7 +699,7 @@
 
                 <li>
                   <a href="#">post deployment</a>
-                  <span class="expand" data-content="<"></span>
+                  <span class="expand"></span>
                   <ul>
                     <li>
                       <a href="#">technical support</a>
@@ -725,7 +719,7 @@
 
             <li>
               <a href="#">Resources</a>
-              <span class="expand" data-content="<"></span>
+              <span class="expand"></span>
               <ul>
                 <li>
                   <a href="#">product brochure</a>
@@ -747,7 +741,7 @@
 
             <li>
               <a href="#">partners</a>
-              <span class="expand" data-content="<"></span>
+              <span class="expand"></span>
               <ul>
                 <li>
                   <a href="#">partner portal</a>
@@ -760,11 +754,11 @@
 
             <li>
               <a href="#">Company</a>
-              <span class="expand" data-content="<"></span>
+              <span class="expand"></span>
               <ul>
                 <li>
                   <a href="#">about dragonwave</a>
-                  <span class="expand" data-content="<"></span>
+                  <span class="expand"></span>
                   <ul>
                     <li>
                       <a href="#">ACCESSIBILITY POLICY</a>
@@ -790,7 +784,7 @@
 
                 <li>
                   <a href="#">careers</a>
-                  <span class="expand" data-content="<"></span>
+                  <span class="expand"></span>
                   <ul>
                     <li>
                       <a href="#">Life at DragonWave</a>
@@ -818,7 +812,7 @@
 
             <li>
               <a class="quick-links" href="#">Quick Links</a>
-              <span class="expand" data-content="<"></span>
+              <span class="expand"></span>
               <ul>
                 <li>
                   <a href="#">Home</a>
@@ -893,11 +887,11 @@
 
       function toggleExpand(el) {
         if (el.nextElementSibling.style.display === "") {
-          el.setAttribute("data-content", ">");
+          el.style.background = `url(../down.svg) no-repeat`;
           el.nextElementSibling.style.display = "block";
           el.previousElementSibling.style.color = "#8dc7d8";
         } else {
-          el.setAttribute("data-content", "<");
+          el.style.background = `url(../left.svg) no-repeat`;
           el.nextElementSibling.style.display = "";
           el.previousElementSibling.style.color = "white";
         }
